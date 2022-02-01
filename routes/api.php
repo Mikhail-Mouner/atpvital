@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')
+Route::middleware(['jsonify', 'cors'])
+    ->prefix('v1')
     ->name('api.')
     ->group(function () {
 
