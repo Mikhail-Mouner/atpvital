@@ -14,10 +14,9 @@ class CreateAdsTagTable extends Migration
     public function up()
     {
         Schema::create('ads_tag', function (Blueprint $table) {
-            $table->bigInteger('ads_id')->unsigned();
-            $table->bigInteger('tag_id')->unsigned();
-            $table->foreign('ads_id')->references('id')->on('ads')->onDelete('cascade');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            
+            $table->foreignId( 'ads_id' )->constrained()->cascadeOnDelete();
+            $table->foreignId( 'tag_id' )->constrained()->cascadeOnDelete();
         });
     }
 

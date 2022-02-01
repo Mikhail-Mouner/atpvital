@@ -19,6 +19,7 @@ class CreateAdsTable extends Migration
             $table->string('title')->unique();
             $table->text('description');
             $table->timestamp('start_date');
+            $table->foreignId( 'category_id' )->constrained()->cascadeOnDelete();
             $table->bigInteger('advertiser')->unsigned();
             $table->foreign('advertiser')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
