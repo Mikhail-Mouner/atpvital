@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\TagRequest;
+use App\Http\Resources\Api\TagResource;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -14,7 +17,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return TagResource::collection($tags);
     }
 
     /**
@@ -23,42 +27,45 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        $tag = Tag::create($request->validated());
+        return response()->json(['status' => 'success', 'message' => 'Record Insert Successfully!', 'data' => TagResource::make($tag)], 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tag $tag)
     {
-        //
+        return TagResource::make($tag);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TagRequest $request, Tag $tag)
     {
-        //
+        $tag->update($request->validated());
+        return response()->json(['status' => 'success', 'message' => 'Record Updated Successfully!', 'data' => TagResource::make($tag)], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag  $tag)
     {
-        //
+        $tag->delete();
+        return response()->json(['status' => 'success', 'message' => 'Record Deleted Successfully!'], 200);
     }
 }

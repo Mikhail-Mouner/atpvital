@@ -13,7 +13,7 @@ class TagRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,21 @@ class TagRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                return [];
+            case 'POST':
+                return [
+                    'name' => 'required|string|unique:App\Models\Tag,name|min:3|max:191',
+                ];
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'name' => 'required|string|unique:App\Models\Tag,name,' . $this->route()->tag->id . '|min:3|max:191',
+                ];
+            default:
+                break;
+        }
     }
 }
