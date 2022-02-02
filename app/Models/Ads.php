@@ -14,12 +14,14 @@ class Ads extends Model
         'title',
         'description',
         'start_date',
+        'category_id',
+        'tag_id',
         'advertiser'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'advertiser');
     }
 
     public function category()

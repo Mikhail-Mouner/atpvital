@@ -13,7 +13,7 @@ class AdsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,42 @@ class AdsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'GET': {
+                    return [
+                        'keyword' => 'nullable|string',
+                    ];
+                }
+            case 'DELETE': {
+                    return [];
+                }
+            case 'POST': {
+                    return [
+                        'type' => 'nullable|in:free,paid',
+                        'start_date' => 'required|date_format:Y-m-d H:i:s|after_or_equal:today',
+                        'title' => 'required|string|unique:App\Models\Ads,title|min:3|max:191',
+                        'description' => 'required|string',
+                        'category_id' => 'required|exists:App\Models\Category,id',
+                        'tag_id' => 'nullable|array',
+                        'tag_id.*' => 'nullable|distinct|exists:App\Models\Tag,id',
+                        'advertiser' => 'required|exists:App\Models\User,id',
+                    ];
+                }
+            case 'PUT':
+            case 'PATCH': {
+                    return [
+                        'type' => 'nullable|in:free,paid',
+                        'start_date' => 'required|date_format:Y-m-d H:i:s|after_or_equal:today',
+                        'title' => 'required|string|unique:App\Models\Ads,title,' . $this->route()->ad->id . '|min:3|max:191',
+                        'description' => 'required|string',
+                        'category_id' => 'required|exists:App\Models\Category,id',
+                        'tag_id' => 'nullable|array',
+                        'tag_id.*' => 'nullable|distinct|exists:App\Models\Tag,id',
+                        'advertiser' => 'required|exists:App\Models\User,id',
+                    ];
+                }
+            default:
+                break;
+        }
     }
 }
