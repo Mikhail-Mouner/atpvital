@@ -1,0 +1,615 @@
+{
+	"info": {
+		"_postman_id": "3cb5b40b-d536-4ce3-bdf9-8fe5322a349c",
+		"name": "atpvital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/v1/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "User",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/v1/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/v1/me",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/category",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/category/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "test insert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/category",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "test update",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/category/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/category/21",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"category",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tag",
+					"item": [
+						{
+							"name": "All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/tag",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"tag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/tag/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"tag",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "test insert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/tag",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"tag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "test update",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/tag/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"tag",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/tag/21",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"tag",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ads",
+					"item": [
+						{
+							"name": "All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/ads",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/ads?category_id=1&tag_id=1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "sint",
+											"disabled": true
+										},
+										{
+											"key": "category_id",
+											"value": "1"
+										},
+										{
+											"key": "tag_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/ads/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "type",
+											"value": "free",
+											"type": "text"
+										},
+										{
+											"key": "start_date",
+											"value": "2022-03-01 09:00:00",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "test insert",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Dicta natus numquam odio illo rem nihil assumenda. Voluptates et veniam amet quidem nihil aut. Rerum cumque quisquam id illum ut et.",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "advertiser",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tag_id[]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tag_id[]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "tag_id[]",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/ads",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "type",
+											"value": "free",
+											"type": "text"
+										},
+										{
+											"key": "start_date",
+											"value": "2022-03-01 09:00:00",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "test update",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Dicta natus numquam odio illo rem nihil assumenda. Voluptates et veniam amet quidem nihil aut. Rerum cumque quisquam id illum ut et.",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "advertiser",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tag_id[]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tag_id[]",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/v1/ads/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/v1/ads/21",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"v1",
+										"ads",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://atpvital.de/api"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDkzNjQ2NWE2MjQzODViYzA2OTcwOWYyY2I5YWJiZWRkOWE0YmVlNmUxOWFhY2YwZjVhMzg4MzJlMDUwN2NkYjVmZjRjYmNjY2E4YWRkZWQiLCJpYXQiOjE2NDM3NTQxMDQsIm5iZiI6MTY0Mzc1NDEwNCwiZXhwIjoxNjc1MjkwMTAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZTMAz3yyGwBqa9oPXmYjp5wWTh1-25W6RUrMSUr_PyZ3B94oIZXmdGkbgOHvAaDKwNDboMfHyl-_8P3EJfTO4XaK6ACJN0-zS16qZiFXn6loJ-am4PTbtMx08JW-7_m5_qDNAMUi9KuJlD_fM6umyUxHF8DZ7VDg0bU21RvzxLNWxgcR5qWh8g_qU3aWy9htzUWPecxEu0ExtT8RAgnrOpvwfIg7XXGUdp8TsfJUxVetL5QaWGmC3aone_OilXlE9p8_-ccxiMRv462Sn2ByP_AwGJ_LVtkpn41hQMsZRHLgPsfQOQkmDWGybwwJapXqBCyqzJSdyhamVdwaeBLgC24GLeHIF4ZI9_qE1XrNMhwfdIWmNkRJ03pQYeXrgSJI0VcPJK8_GzzKvIMK5SeXNHPaZ81HMN3rkDqSRo-4W2Sy2Yraf_b9jwa2YF8vx8849IK1ORIP4MwwviDnL62WzYZELiNm73nVdWZ71KheDqAZ6iHbv_6U8Rgr2JT4n4s5a_rWo3mjcWqUZwJtp6rZnmR1-BEHGJg9aQ7xCl-dnJd00TfyNGOpJzHdFei2cf6dqdny8B6alS9EPxnfwblmK3rHIm-w9hhZLc-XEve7y5liyEd5I6mjqHF8b2JVbaJgDzSAm4DQGNMOZxEVz2K31V6A3AF7Y243TWpA4OQhoDc"
+		}
+	]
+}
