@@ -27,6 +27,8 @@ class AdsRequest extends FormRequest
             case 'GET': {
                     return [
                         'keyword' => 'nullable|string',
+                        'tag_id' => 'nullable|exists:App\Models\Tag,id',
+                        'category_id' => 'nullable|exists:App\Models\Category,id',
                     ];
                 }
             case 'DELETE': {
